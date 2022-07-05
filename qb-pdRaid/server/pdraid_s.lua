@@ -8,8 +8,5 @@ end)
 
 QBCore.Functions.CreateCallback('apartments:PoliceApartment', function(source, cb, citizenid)
     local result = MySQL.query.await('SELECT * FROM apartments WHERE citizenid = ?', { citizenid })
-   if result[1] ~= nil then
-            return cb(result[1])
-        end
-        return cb(nil)
-end)
+	return cb(result[1])
+end
