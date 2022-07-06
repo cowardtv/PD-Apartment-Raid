@@ -6,9 +6,9 @@ local QBCore = exports['qb-core']:GetCoreObject()
 
 
 local targetlocations = {
-    vector3(-667.372,-1106.034,14.629),
-    -- vector3(-1288.61, -430.71, 34.77),
-	-- vector3(269.89, -640.89, 42.01),
+        vector3(-667.372,-1106.034,14.629),
+        vector3(-1288.61, -430.71, 34.77),
+	vector3(269.89, -640.89, 42.01),
 	vector3(-621.016,46.677,43.591),
 	vector3(291.517,-1078.674,29.405),
 }
@@ -32,48 +32,6 @@ function ApartmentCheck()
         return "apartment5"
     end
 end
-
-
-Citizen.CreateThread(function()
-
-        exports['qb-target']:AddBoxZone("apartment2", vector3(-1288.61, -430.71, 34.77), 0.5, 3.1, {
-            name = "apartment2",
-            heading=303,
-  minZ=33.77,
-  maxZ=37.77
-        }, {
-            options = {
-                {
-                    event = "qb-apartments:choose",
-                    icon = "far fa-clipboard",
-                    label = "Raid apartment",
-                    job = 'police'
-                },
-            },
-            distance = 1.5
-        })
-end)
-
-Citizen.CreateThread(function()
-
-        exports['qb-target']:AddBoxZone("apartment23", vector3(269.89, -640.89, 42.01), 1.4, 1.0, {
-            name = "apartment23",
-             heading=340,
-  minZ=41.01,
-  maxZ=43.81
-        }, {
-            options = {
-                {
-                    event = "qb-apartments:choose",
-                    icon = "far fa-clipboard",
-                    label = "Raid apartment",
-                    job = 'police'
-                },
-            },
-            distance = 1.5
-        })
-end)
-
 Citizen.CreateThread(function()
 
     for k,v in pairs(targetlocations) do
