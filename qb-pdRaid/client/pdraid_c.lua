@@ -1,7 +1,18 @@
 local QBCore = exports['qb-core']:GetCoreObject()
+PlayerJob = {}
+local onDuty = false
+RegisterNetEvent('QBCore:Client:OnPlayerLoaded')
+AddEventHandler('QBCore:Client:OnPlayerLoaded', function()
+    QBCore.Functions.GetPlayerData(function(PlayerData)
+        PlayerJob = PlayerData.job
+    end)
+end)
 
-
-
+RegisterNetEvent('QBCore:Client:OnJobUpdate')
+AddEventHandler('QBCore:Client:OnJobUpdate', function(JobInfo)
+    PlayerJob = JobInfo
+    onDuty = PlayerJob.onduty
+end)
 
 
 
@@ -64,7 +75,7 @@ end)
 RegisterCommand('pdraid', function()
 	if not raidEnabled then
 		PlayerJob = QBCore.Functions.GetPlayerData().job
-		if PlayerJob.grade.level > 12 and PlayerJob.name == 'police' then
+		if PlayerJob.grade.level > 12 and PlayerJob.name == 'police' and onDuty then
 			local timer = math.random(5,10)
 			local circles = math.random(3, 4)
 			local LockPick = exports['qb-lock']:StartLockPickCircle(circles, timer)
