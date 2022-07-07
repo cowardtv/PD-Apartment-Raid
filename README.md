@@ -1,5 +1,6 @@
 # PD-Apartment-Raid
 Raid Apartments Via Police JOB | QBCORE NEW
+TO HAVE THIS FULLY WORKED ADD THE CLIENT TO THE BUTTOM OF QB-APARTMENTS, you can put the server side where ever you want but i suggest qb-apartment either
 
 Add More Houses Location Via Client by Editing ApartmentCheck() and targetlocations
 
