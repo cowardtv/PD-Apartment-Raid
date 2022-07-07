@@ -9,4 +9,4 @@ end)
 QBCore.Functions.CreateCallback('apartments:PoliceApartment', function(source, cb, citizenid)
     local result = MySQL.query.await('SELECT * FROM apartments WHERE citizenid = ?', { citizenid })
 	return cb(result[1])
-end
+end)
